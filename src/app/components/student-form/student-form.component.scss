@@ -1,0 +1,108 @@
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    background-color: #fdfdfd;
+    font-family: Arial, sans-serif;
+}
+
+div {
+    margin-bottom: 12px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 4px;
+    font-size: 14px;
+    color: #444;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"] {
+    margin-left: -2%;
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    
+    &:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 6px rgba(0, 123, 255, 0.2);
+        outline: none;
+    }
+}
+
+button {
+    background-color: #2c547e;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    align-self: center;
+  
+    &:hover {
+        background-color: #0056b3;
+        transform: translateY(-2px);
+    }
+
+    &:disabled {
+        background-color: #3899ab;
+        cursor: not-allowed;
+    }
+}
+
+form div[formArrayName="materia"] {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+
+    input[type="text"] {
+        width: 70%;
+        padding: 8px;
+        border-radius: 4px;
+        font-size: 16px;
+    }
+
+    button[type="button"] {
+        background-color: #dc3545;
+        padding: 8px;
+        border-radius: 6px;
+
+        &:hover {
+            background-color: #c82333;
+        }
+    }
+}
+
+button.add-materia {
+    background-color: #6d9175;
+    padding: 10px 15px;
+    border-radius: 6px;
+    align-self: center;
+
+    &:hover {
+        background-color: #218838;
+    }
+}
+
+input,
+button {
+    margin-top: 5px;
+}
+
+.error-message {
+    color: #d9534f;
+    font-size: 14px;
+    margin-top: 4px;
+}

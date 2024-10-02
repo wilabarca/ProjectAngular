@@ -1,0 +1,58 @@
+<form [formGroup]="studentForm" (ngSubmit)="submitForm()">
+    <div>
+      <label for="matricula">Matrícula</label>
+      <input id="matricula" formControlName="matricula" type="text" />
+    </div>
+  
+    <div>
+      <label for="nombre">Nombre</label>
+      <input id="nombre" formControlName="nombre" type="text" />
+    </div>
+  
+    <div>
+      <label for="apellido">Apellido</label>
+      <input id="apellido" formControlName="apellido" type="text" />
+    </div>
+  
+    <div>
+      <label for="materia">Materias</label>
+      <div formArrayName="materia">
+        <div *ngFor="let mat of materia.controls; let i = index">
+          <input [formControlName]="i" type="text" placeholder="Materia {{i + 1}}" />
+          <button type="button" (click)="removeMateria(i)">Eliminar Materia</button>
+        </div>
+      </div>
+      <button type="button" (click)="addMateria()">Añadir Materia</button>
+    </div>
+  
+    <div>
+      <label for="email">Email</label>
+      <input id="email" formControlName="email" type="email" />
+    </div>
+  
+    <div>
+      <label for="edad">Edad</label>
+      <input id="edad" formControlName="edad" type="number" />
+    </div>
+  
+    <button type="submit" [disabled]="!studentForm.valid">Guardar Estudiante</button>
+  </form>
+  
+  <!-- Mostrar la lista de estudiantes ingresados -->
+  <div *ngIf="students.length > 0">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Estudiantes Registrados</mat-card-title>
+      </mat-card-header>
+  
+      <mat-card-content>
+        <mat-list>
+          <mat-list-item *ngFor="let student of students; let i = index">
+            {{ student.nombre }} {{ student.apellido }} ({{ student.matricula }}), Email: {{ student.email }}, Edad: {{ student.edad }}, Materia: {{student.materia.join(', ')}}
+            <button mat-button color="warn" (click)="removeStudent(i)">Eliminar</button>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  
