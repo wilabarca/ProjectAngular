@@ -41,7 +41,7 @@ export class StudentFormComponent {
   addMateria() {
     this.materia.push(this.fb.control('', Validators.required));
   }
-
+  
   removeMateria(index: number) {
     this.materia.removeAt(index);
   }
